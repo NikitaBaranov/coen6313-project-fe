@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-6">
+    <app-draw-input
+      (recognizeClick)="onRecogniseClick($event)"
+      (clearClick)="onClearImgClick()"
+    ></app-draw-input>
+  </div>
+  <div class="col-md-6">
+    <app-result
+      [result]="result"
+    ></app-result>
+  </div>
+</div>

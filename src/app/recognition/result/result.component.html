@@ -1,0 +1,39 @@
+<div class="div row justify-content-center">
+  <div class="col">
+    <div class="h2">Prediction value:</div>
+  </div>
+  <div class="div col">
+    <div class="h2">
+      {{ result.classes }}
+    </div>
+  </div>
+</div>
+<div class="row align-content-center">
+  <div class="col h3 align-content-center">
+    Classes
+  </div>
+  <div class="col h3 align-content-center">
+    Probabilities
+  </div>
+</div>
+<div *ngFor="let arr of result.probabilities; let i = index">
+  <div *ngIf="arr.valueOf() == 1;else regularElement" class="row border-success align-content-center"
+       style="border:1px solid green">
+    <div class="col h5 align-content-center">
+      Class {{i}}
+    </div>
+    <div class="col h5 align-content-center">
+      {{arr.valueOf()}}
+    </div>
+  </div>
+  <ng-template #regularElement>
+    <div class="row align-content-center">
+      <div class="col h5 align-content-center">
+        Class {{i}}
+      </div>
+      <div class="col h5 align-content-center">
+        {{arr.valueOf()}}
+      </div>
+    </div>
+  </ng-template>
+</div>

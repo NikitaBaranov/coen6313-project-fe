@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: project-app-tier-fe
+spec:
+  type: LoadBalancer
+  selector:
+    app: project-fe
+    tier: app
+  ports:
+    - name: app
+      port: 80
+      targetPort: 80
+      protocol: TCP

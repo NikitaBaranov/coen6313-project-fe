@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1 #apps/v1beta2 # for versions before 1.7.0 use apps/v1beta1
+kind: Deployment
+metadata:
+  name: project-app-tier-fe
+spec:
+  replicas: 3
+  template:
+    metadata:
+      name: project-fe
+      labels:
+        app: project-fe
+        tier: app
+    spec:
+      containers:
+        - name: app
+          image: us.gcr.io/synthetic-eon-167418/coen6313-p-fe:v4
+          ports:
+            - containerPort: 80
+              protocol: TCP
